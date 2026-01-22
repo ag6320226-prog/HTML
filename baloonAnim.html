@@ -1,0 +1,377 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Balloon Animation</title>
+  <style>
+    :root {
+      --bg: #0f172a; 
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      overflow: hidden;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    .sky {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .balloon {
+      position: absolute;
+      width: var(--size, 60px);
+      height: calc(var(--size, 60px) * 1.25);
+      left: var(--x, 50%);
+      bottom: -120px; 
+      transform: translateX(-50%);
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.25));
+      animation: floatUp var(--duration, 10s) linear forwards,
+                 sway var(--swayDuration, 3s) ease-in-out infinite;
+    }
+
+ 
+    .balloon .body {
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7), transparent 35%),
+                  var(--color, #ff6b6b);
+      border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
+      position: relative;
+    }
+
+
+    .balloon .body::after {
+      content: "";
+      position: absolute;
+      top: 12%;
+      left: 18%;
+      width: 22%;
+      height: 18%;
+      background: rgba(255,255,255,0.55);
+      border-radius: 50%;
+      filter: blur(1px);
+    }
+
+  
+    .knot {
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 10px;
+      background: var(--color, #ff6b6b);
+      border-radius: 50% 50% 60% 60%;
+    }
+
+
+    .string {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      width: 2px;
+      height: 60px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.2));
+      transform: translateX(-50%);
+      animation: wiggle var(--swayDuration, 3s) ease-in-out infinite;
+      transform-origin: top;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateX(-50%) translateY(0); opacity: 0.0; }
+      5%   { opacity: 1; }
+      100% { transform: translateX(-50%) translateY(-120vh); opacity: 0.9; }
+    }
+
+    @keyframes sway {
+      0%   { margin-left: 0; }
+      50%  { margin-left: 18px; }
+      100% { margin-left: 0; }
+    }
+
+    @keyframes wiggle {
+      0%   { transform: translateX(-50%) rotate(0deg); }
+      50%  { transform: translateX(-50%) rotate(3deg); }
+      100% { transform: translateX(-50%) rotate(0deg); }
+    }
+
+   
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="sky" id="sky"></div>
+
+  <script>
+    const COLORS = [
+      "#ff6b6b", "#feca57", "#48dbfb", "#5f27cd",
+      "#10ac84", "#ee5253", "#ff9ff3", "#54a0ff"
+    ];
+    const MIN_SIZE = 50;   
+    const MAX_SIZE = 110;  
+    const MIN_DURATION = 8;  
+    const MAX_DURATION = 16; 
+    const MIN_SWAY = 2.5;    
+    const MAX_SWAY = 4.5;    
+    const BALLOONS_PER_BATCH = 6;
+    const BATCH_INTERVAL = 1200; // ms
+
+    const sky = document.getElementById("sky"); -->
+<!-- 
+    // Optional: sprinkle some stars
+//     (function addStars(count = 80) {
+//       for (let i = 0; i < count; i++) {
+//         const s = document.createElement("div");
+//         s.className = "star";
+//         s.style.left = Math.random() * 100 + "%";
+//         s.style.top = Math.random() * 100 + "%";
+//         s.style.opacity = (0.4 + Math.random() * 0.6).toFixed(2);
+//         s.style.transform = `scale(${0.6 + Math.random() * 1.4})`;
+//         sky.appendChild(s);
+//       }
+//     })();
+
+//     function randomBetween(min, max) {
+//       return min + Math.random() * (max - min);
+//     }
+
+//     function createBalloon() {
+//       const balloon = document.createElement("div");
+//       balloon.className = "balloon";
+
+//       const size = randomBetween(MIN_SIZE, MAX_SIZE);
+//       const duration = randomBetween(MIN_DURATION, MAX_DURATION);
+//       const swayDuration = randomBetween(MIN_SWAY, MAX_SWAY);
+//       const x = Math.random() * 100; 
+//       const color = COLORS[Math.floor(Math.random() * COLORS.length)]; -->
+
+<!-- //       balloon.style.setProperty("--size", `${size}px`);
+//       balloon.style.setProperty("--duration", `${duration}s`);
+//       balloon.style.setProperty("--swayDuration", `${swayDuration}s`);
+//       balloon.style.setProperty("--x", `${x}%`);
+//       balloon.style.setProperty("--color", color);
+
+      
+//       const body = document.createElement("div");
+//       body.className = "body";
+
+//       const knot = document.createElement("div");
+//       knot.className = "knot";
+
+//       const string = document.createElement("div");
+//       string.className = "string";
+
+//       balloon.appendChild(body);
+//       balloon.appendChild(knot);
+//       balloon.appendChild(string);
+
+//       balloon.addEventListener("animationend", () => {
+//         balloon.remove();
+//       });
+
+//       sky.appendChild(balloon);
+//     }
+
+    
+//     function spawnBatch() {
+//       for (let i = 0; i < BALLOONS_PER_BATCH; i++) {
+//         setTimeout(createBalloon, i * 150);
+//       }
+//     }
+
+//     spawnBatch();
+
+  
+//     setInterval(spawnBatch, BATCH_INTERVAL);
+
+   
+//     sky.addEventListener("click", createBalloon); -->
+<!-- //   </script>
+// </body>
+// </html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Balloon Animation with Moving Sky</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    body {
+      background: linear-gradient(to top, #1e3c72, #2a5298);
+      animation: skyShift 30s linear infinite alternate;
+    }
+
+    /* Sky container */
+    .sky {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Sun */
+    .sun {
+      position: absolute;
+      bottom: 10%;
+      left: -100px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, #fff176 40%, #fbc02d 70%, #f57f17 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 60px rgba(255, 223, 0, 0.7);
+      animation: sunMove 30s linear infinite alternate;
+    }
+
+    /* Balloon base */
+    .balloon {
+      position: absolute;
+      width: var(--size, 60px);
+      height: calc(var(--size, 60px) * 1.25);
+      left: var(--x, 50%);
+      bottom: -120px;
+      transform: translateX(-50%);
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.25));
+      animation: floatUp var(--duration, 10s) linear forwards,
+                 sway var(--swayDuration, 3s) ease-in-out infinite;
+    }
+
+    .balloon .body {
+      width: 100%;
+      height: 100%;
+      background: var(--color, #ff6b6b);
+      border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
+      position: relative;
+    }
+
+    .knot {
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 10px;
+      background: var(--color, #ff6b6b);
+      border-radius: 50% 50% 60% 60%;
+    }
+
+    .string {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      width: 2px;
+      height: 60px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.2));
+      transform: translateX(-50%);
+      animation: wiggle var(--swayDuration, 3s) ease-in-out infinite;
+      transform-origin: top;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateX(-50%) translateY(0); opacity: 0; }
+      5%   { opacity: 1; }
+      100% { transform: translateX(-50%) translateY(-120vh); opacity: 0.9; }
+    }
+
+    @keyframes sway {
+      0%   { margin-left: 0; }
+      50%  { margin-left: 18px; }
+      100% { margin-left: 0; }
+    }
+
+    @keyframes wiggle {
+      0%   { transform: translateX(-50%) rotate(0deg); }
+      50%  { transform: translateX(-50%) rotate(3deg); }
+      100% { transform: translateX(-50%) rotate(0deg); }
+    }
+
+    /* Background sky gradient animation */
+    @keyframes skyShift {
+      0%   { background: linear-gradient(to top, #1e3c72, #2a5298); }
+      50%  { background: linear-gradient(to top, #87ceeb, #fbc02d); }
+      100% { background: linear-gradient(to top, #0f172a, #1e293b); }
+    }
+
+    /* Sun movement */
+    @keyframes sunMove {
+      0%   { left: -120px; bottom: 10%; }
+      50%  { left: 50%; bottom: 70%; }
+      100% { left: 110%; bottom: 10%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sky" id="sky">
+    <div class="sun"></div>
+  </div>
+
+  <script>
+    const COLORS = ["#ff6b6b","#feca57","#48dbfb","#5f27cd","#10ac84","#ee5253","#ff9ff3","#54a0ff"];
+    const sky = document.getElementById("sky");
+
+    function randomBetween(min, max) {
+      return min + Math.random() * (max - min);
+    }
+
+    function createBalloon() {
+      const balloon = document.createElement("div");
+      balloon.className = "balloon";
+
+      const size = randomBetween(50, 110);
+      const duration = randomBetween(8, 16);
+      const swayDuration = randomBetween(2.5, 4.5);
+      const x = Math.random() * 100;
+      const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+
+      balloon.style.setProperty("--size", `${size}px`);
+      balloon.style.setProperty("--duration", `${duration}s`);
+      balloon.style.setProperty("--swayDuration", `${swayDuration}s`);
+      balloon.style.setProperty("--x", `${x}%`);
+      balloon.style.setProperty("--color", color);
+
+      const body = document.createElement("div");
+      body.className = "body";
+      const knot = document.createElement("div");
+      knot.className = "knot";
+      const string = document.createElement("div");
+      string.className = "string";
+
+      balloon.appendChild(body);
+      balloon.appendChild(knot);
+      balloon.appendChild(string);
+
+      balloon.addEventListener("animationend", () => balloon.remove());
+      sky.appendChild(balloon);
+    }
+
+    function spawnBatch() {
+      for (let i = 0; i < 6; i++) {
+        setTimeout(createBalloon, i * 150);
+      }
+    }
+
+    spawnBatch();
+    setInterval(spawnBatch, 1200);
+  </script>
+</body>
+</html>
