@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My First Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body{
+        background:#f4f6f8;
+        color:#333;
+    }
+
+    header{
+        background:#0f172a;
+        color:white;
+        padding:15px 40px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    header h1{
+        font-size:22px;
+    }
+
+    nav a{
+        color:white;
+        text-decoration:none;
+        margin-left:20px;
+        font-size:16px;
+    }
+
+    nav a:hover{
+        color:#38bdf8;
+    }
+
+    .hero{
+        height:70vh;
+        background:linear-gradient(to right,#2563eb,#38bdf8);
+        color:white;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        padding:20px;
+    }
+
+    .hero h2{
+        font-size:40px;
+        margin-bottom:10px;
+    }
+
+    .hero p{
+        font-size:18px;
+        max-width:600px;
+    }
+
+    .btn{
+        margin-top:20px;
+        padding:12px 25px;
+        background:white;
+        color:#2563eb;
+        border-radius:30px;
+        text-decoration:none;
+        font-weight:bold;
+    }
+
+    section{
+        padding:60px 40px;
+        text-align:center;
+    }
+
+    .cards{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:20px;
+        margin-top:30px;
+    }
+
+    .card{
+        background:white;
+        padding:25px;
+        border-radius:12px;
+        box-shadow:0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    footer{
+        background:#0f172a;
+        color:white;
+        text-align:center;
+        padding:15px;
+        margin-top:40px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>MyWebsite</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h2>Welcome to My Website</h2>
+    <p>This is a simple, clean and responsive website made using HTML & CSS.</p>
+    <a href="#" class="btn">Get Started</a>
+</div>
+
+<section>
+    <h2>Our Services</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Web Design</h3>
+            <p>Modern and responsive website design.</p>
+        </div>
+        <div class="card">
+            <h3>Development</h3>
+            <p>Fast and clean coding practices.</p>
+        </div>
+        <div class="card">
+            <h3>Support</h3>
+            <p>24/7 support and guidance.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 MyWebsite | All Rights Reserved
+</footer>
+
+</body>
+</html>
