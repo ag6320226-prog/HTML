@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarah | Portfolio</title>
+
+ <link href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt6Gl4mzStEGUPdwTjGd5MPOdDis9_B_2M4A&s" rel="stylesheet"> 
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:#f9fafb;
+  color:#111;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 25px;
+}
+header h2 span{color:#f97316}
+.menu{font-size:26px;cursor:pointer}
+
+
+.hero{padding:20px 25px}
+.hero small{color:#6b7280;font-weight:600}
+.hero h1{font-size:32px;margin:10px 0}
+.hero h1 span{color:#6366f1}
+.hero p{color:#6b7280;font-size:14px}
+
+.btns{display:flex;gap:12px;margin-top:15px}
+.btn{
+  padding:12px 18px;
+  border-radius:10px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+}
+.primary{background:#111;color:#fff}
+.secondary{background:#e5e7eb}
+
+.profile{
+  margin:40px 0;
+  display:flex;
+  justify-content:center;
+  position:relative;
+}
+.profile img{
+  width:240px;
+  border-radius:50%;
+  padding:8px;
+  background:#fff;
+}
+.badge{
+  position:absolute;
+  background:#fff;
+  padding:8px 12px;
+  border-radius:12px;
+  font-size:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+.left{left:15px;bottom:40px}
+.right{right:15px;top:40px}
+.badge span{color:#10b981;font-weight:700}
+
+section{padding:50px 25px}
+section h2{font-size:26px;margin-bottom:10px}
+
+.skills{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+.skill{
+  background:#fff;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+  font-weight:600;
+}
+
+.project-list{
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+}
+
+.project-row{
+  background:#8ca6c5;
+  border-radius:20px;
+    display:flex;
+    gap:20px;
+    
+  overflow:hidden;
+  box-shadow:0 12px 35px rgba(14, 14, 14, 0.08);
+}
+
+.project-row.dark{
+  background:#0f172a;
+  color:#fff;
+}
+
+.project-row img{
+  width:100%;
+    height:250px;
+
+    object-fit:cover;
+    border-radius:12px;
+  display:block;
+}
+
+.project-content{
+  padding:25px;
+}
+
+.project-type{
+  color:#f97316;
+  font-size:13px;
+  font-weight:600;
+}
+
+.project-title{
+  font-size:22px;
+  font-weight:700;
+  margin:8px 0;
+}
+
+.project-desc{
+  color:#6b7280;
+  font-size:14px;
+}
+
+.project-row.dark .project-desc{
+  color:#d1d5db;
+}
+
+   .tags{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:15px 0;
+
+}
+
+.tag{
+  background:#f3f4f6;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+
+}
+.project-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:12px;
+  display:block;
+
+}
+
+.project-row.dark .tag{
+  background:#1f2933;
+  color:#d1d5db;
+}
+
+.project-btn{
+  padding:10px 16px;
+  border-radius:10px;
+
+
+  border:1px solid #e5e7eb;
+  background:#fff;
+  font-weight:600;
+
+  cursor:pointer;
+
+}
+
+
+.contact-box{
+  background:#fff;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.available{
+  background:#f3f4f6;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:20px;
+}
+
+.available strong{display:block;margin-bottom:5px}
+
+input, textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:15px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  font-size:14px;
+}
+
+textarea{resize:none;height:100px}
+
+.send-btn{
+  width:100%;
+  padding:14px;
+  background:#111;
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#6b7280;
+}
+
+.fade{
+  opacity:0;
+  transform:translateY(30px);
+  transition:0.8s;
+}
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+.skill-bars{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  margin-top:30px;
+}
+
+.skill-box{
+  font-weight:600;
+}
+
+.skill-box span{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:6px;
+  font-size:14px;
+}
+
+.bar{
+  width:100%;
+  height:8px;
+  background:#e5e7eb;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#f97316,#fb923c);
+  border-radius:10px;
+  transition:1.5s;
+}
+
+@media(max-width:600px){
+  .skill-bars{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>Port<span>folio</span></h2>
+  <div class="menu">☰</div>
+</header>
+
+<div class="hero fade">
+  <small>WELCOME TO MY PORTFOLIO</small>
+  <h1>Hi, I'm <span>Arya</span><br>Designer & Developer</h1>
+  <p>I create beautiful digital experiences with clean and modern code.</p>
+  <div class="btns">
+    <button class="btn primary">View My Work</button>
+    <button class="btn secondary">Download Resume</button>
+  </div>
+</div>
+
+<div class="profile fade">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqnHEKdwokamBZhhDFfaQCVAEZ612nYQI2UQ&s"
+      alt="perfect img">
+  <div class="badge left"><span>5+</span><br>Years Exp.</div>
+  <div class="badge right"><span>50+</span><br>Projects</div>
+</div>
+
+<section class="fade">
+  <h2>My Skills</h2>
+  <div class="skills">
+    <div class="skill">UI / UX Design</div>
+    <div class="skill">HTML & CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">React Basics</div>
+  </div>
+</section>
+
+<section class="fade">
+  <h2>Featured <i>Projects</i></h2>
+  <p style="color:#6b7280;margin-bottom:30px">
+    A selection of my recent work across web design, mobile apps, and branding
+  </p>
+
+  <div class="project-list">
+
+
+    <div class="project-row">
+      <img src="https://www.aihr.com/wp-content/uploads/People-Analytics-Dashboard-Cover-image.png"
+      alt="Analytics Dashboard">
+      <div class="project-content">
+        <div class="project-type">Web Design & Development</div>
+        <div class="project-title">Analytics Dashboard</div>
+        <div class="project-desc">
+          A comprehensive analytics platform with real-time data visualization.
+        </div>
+        <div class="tags">
+          <div class="tag">React</div>
+          <div class="tag">TypeScript</div>
+          <div class="tag">Tailwind</div>
+        </div>
+        <button class="project-btn">View Project ↗</button>
+      </div>
+    </div>
+
+
+    <div class="project-row dark">
+      <img src="https://gapsystudio.com/storage/editor/categorization-in-fitness-app-1536x1152-11zon.webp">
+      <div class="project-content">
+        <div class="project-type" style="color:#2c2621">Mobile App Design</div>
+        <div class="project-title">Fitness Mobile App</div>
+        <div class="project-desc">
+          Beautiful fitness tracking app with workout plans and progress tracking.
+        </div>
+        <div class="tags">
+          <div class="tag">React Native</div>
+          <div class="tag">UI/UX</div>
+          <div class="tag">Figma</div>
+        </div>
+        <button class="project-btn">View Project ↗</button>
+      </div>
+    </div>
+
+    <div class="project-row">
+      <img src="https://www.inventiva.co.in/wp-content/uploads/2024/11/Top-10-Best-Fashion-E-Commerce-Platforms-in-India-2025.jpg">
+      <img src="https://dolphinwebsolution.com/wp-content/uploads/2023/10/Top-Fashion-E-Commerce-Sites-In-India.jpeg">
+    
+      <div class="project-content">
+        <div class="project-type">E-commerce Website</div>
+        <div class="project-title">Fashion E-commerce</div>
+        <div class="project-desc">
+          A modern online fashion store with seamless shopping experience.
+        </div>
+        <div class="tags">
+          <div class="tag">Next.js</div>
+          <div class="tag">Shopify</div>
+          <div class="tag">Design</div>
+        </div>
+        <button class="project-btn">View Project ↗</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+//section
+<section class="fade">
+  <h2>Tools & <i>Technologies</i></h2>
+  <p style="color:#6b7280;margin-bottom:20px">
+    I work with a variety of modern tools and technologies to bring ideas to life
+  </p>
+
+  <div class="skill-bars">
+
+    <div class="skill-box">
+      <span>React <b>95%</b></span>
+      <div class="bar"><div class="fill" data-fill="95%"></div></div>
+    </div>
+
+    <div class="skill-box">
+      <span>UI / UX Design <b>92%</b></span>
+      <div class="bar"><div class="fill" data-fill="92%"></div></div>
+    </div>
+
+    <div class="skill-box">
+      <span>Tailwind CSS <b>95%</b></span>
+      <div class="bar"><div class="fill" data-fill="95%"></div></div>
+    </div>
+
+    <div class="skill-box">
+      <span>TypeScript <b>90%</b></span>
+      <div class="bar"><div class="fill" data-fill="90%"></div></div>
+    </div>
+
+    <div class="skill-box">
+      <span>Node.js <b>80%</b></span>
+      <div class="bar"><div class="fill" data-fill="80%"></div></div>
+    </div>
+
+    <div class="skill-box">
+      <span>Figma <b>88%</b></span>
+      <div class="bar"><div class="fill" data-fill="88%"></div></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="fade">
+  <div class="contact-box">
+    <div class="available">
+      <strong>Available for Work</strong>
+      I'm currently taking on new projects. Let's discuss how I can help you.
+    </div>
+
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <input type="text" placeholder="Subject">
+    <textarea placeholder="Tell me about your project..."></textarea>
+    <button class="send-btn">Send Message ✈</button>
+  </div>
+</section>
+
+<footer>
+  &copy; 2024 Arya. All rights reserved.
+</footer>
+
+<script>
+  //js
+ 
+const fills = document.querySelectorAll('.fill');
+
+const animateBars = () => {
+  fills.forEach(bar=>{
+    if(bar.getBoundingClientRect().top < window.innerHeight-100){
+      bar.style.width = bar.getAttribute('data-fill');
+    }
+  });
+};
+
+window.addEventListener('scroll', animateBars);
+animateBars();
+const fades = document.querySelectorAll('.fade');
+const showOnScroll = () => {
+  fades.forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight-100){
+      el.classList.add('show');
+    }
+  });
+};
+window.addEventListener('scroll', showOnScroll);
+showOnScroll();
+</script>
+
+</body>
+</html>
