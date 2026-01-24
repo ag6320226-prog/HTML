@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Photo Showcase</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height:100vh;
+    background: linear-gradient(135deg, #163c4d, #00eaff, #5c9fbb);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:320px;
+}
+
+.card{
+    position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(0,0,0,0.6);
+    cursor:pointer;
+    transform:scale(0.9);
+}
+
+.card img{
+    width:100%;
+    display:block;
+    transition:0.5s;
+}
+
+.card:hover img{
+    transform:scale(1.1);
+}
+
+.overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:20px;
+    background:linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color:white;
+    transform:translateY(100%);
+    transition:0.4s;
+}
+
+.card:hover .overlay{
+    transform:translateY(0);
+}
+
+.overlay h2{
+    font-size:22px;
+}
+
+.overlay p{
+    font-size:14px;
+    opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card" id="card">
+    
+    <img src="https://img.freepik.com/free-photo/courage-man-jump-through-gap-hill-business-concept-idea_1323-262.jpg?semt=ais_hybrid&w=740&q=80">
+   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3wxJ0c-jC6VcDASO9aiDWD9zWAeJLKrS5gg&s">
+    <alt="Photo">
+        <div class="overlay">
+            <h2>Photo Showcase</h2>
+            <p>HTML • CSS • JavaScript</p>
+        </div>
+    </div>
+</div>
+
+<script>
+
+window.onload = () => {
+    const card = document.getElementById("card");
+    setTimeout(() => {
+        card.style.transform = "scale(1)";
+        card.style.transition = "0.5s";
+    }, 300);
+};
+</script>
+
+</body>
+</html>
