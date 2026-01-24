@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ball Animation</title>
+<style>
+    body{
+        margin:0;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:#0f172a;
+        overflow:hidden;
+    }
+
+    .circle{
+        width:250px;
+        height:250px;
+        position:relative;
+        animation: rotate 6s linear infinite;
+    }
+
+    .ball{
+        width:40px;
+        height:40px;
+        background:orange;
+        border-radius:50%;
+        position:absolute;
+        top:0;
+        left:50%;
+        transform:translateX(-50%);
+        animation: bounce 1.2s ease-in-out infinite alternate;
+        box-shadow:0 0 20px orange;
+    }
+    .circle:hover.ball{
+        animation: alternate-reverse;
+
+    }
+
+    @keyframes rotate{
+        from{ transform:rotate(0deg); }
+        to{ transform:rotate(360deg); }
+    }
+
+    @keyframes bounce{
+        from{ transform:translateX(-50%) translateY(0); }
+        to{ transform:translateX(-50%) translateY(120px); }
+    }
+    @keyframes identifier {
+    0% {
+        background-color: orange;
+        
+    }
+}
+  
+</style>
+</head>
+<body>
+
+    <div class="circle">
+        <div class="ball"></div>
+    </div>
+
+</body>
+</html>
