@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Animated Website</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+      background-size: 800% 800%;
+      animation: gradientMove 15s ease infinite;
+      font-family: Arial, sans-serif;
+    }
+
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      font-size: 3em;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-20px);}
+    }
+
+    .button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: white;
+      color: #333;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      background: #ffe082;
+    }
+    .logo-box {
+                position: relative;
+                width: 100%;
+                height: 100%;
+     }
+            .quadrant {
+                position: absolute;
+                width: 50%;
+                height: 50%;
+                overflow: hidden;
+            }
+    
+            .quadrant img {
+                position: absolute;
+                width: 200%;
+                height: 200%;
+            }
+    
+            .top-left {
+                top: 0;
+                left: 0;
+            }
+    
+            .top-left img {
+                top: 0;
+                left: 0;
+            }
+    
+            .top-right {
+                top: 0;
+                right: 0;
+            }
+    
+            .top-right img {
+                top: 0;
+                left: -100%;
+            }
+    
+            .bottom-left {
+                bottom: 0;
+                left: 0;
+            }
+    
+            .bottom-left img {
+                top: -100%;
+                left: 0;
+            }
+    
+            .bottom-right {
+                bottom: 0;
+                right: 0;
+            }
+    
+            .bottom-right img {
+                top: -100%;
+                left: -100%;
+            }
+    
+            @keyframes spin {
+                from {transform: rotate(0deg);}
+                to {transform: rotate(360deg);}
+            }
+    
+            @keyframes popIn {
+                to {transform: scale(1);}
+            }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpDPmoHPPOpx8yDr68dKk7F2A-mGUG65ltOQ&s">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeas3NgqjEWE_7OrrSsFazrcV3ua36-XS1DA&s">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLGD5QRI-Pw8EewDFLELLvMGCNahbv5_cVqQ&s"
+       alt ="perfect img">
+
+    <h1>Welcome to My Mini Site 🎉</h1>
+    <button class="button" onclick="alert('You clicked the button!')">Click Me</button>
+  </div>
+</body>
+</html>
