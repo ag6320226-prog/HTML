@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Twinkling Galaxy</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="galaxy"></canvas>
+  <script>
+    const canvas = document.getElementById("galaxy");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Create stars
+    let stars = [];
+    for (let i = 0; i < 200; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2 + 1,
+        opacity: Math.random(),
+        dOpacity: Math.random() * 0.02 + 0.01 // speed of twinkle
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let s of stars) {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${s.opacity})`;
+        ctx.fill();
+      }
+    }
+
+    function updateStars() {
+      for (let s of stars) {
+        // twinkle effect
+        s.opacity += s.dOpacity;
+        if (s.opacity > 1 || s.opacity < 0) {
+          s.dOpacity = -s.dOpacity;
+        }
+        // slight movement
+        s.y += 0.2;
+        if (s.y > canvas.height) {
+          s.y = 0;
+          s.x = Math.random() * canvas.width;
+        }
+      }
+    }
+
+    function animate() {
+      drawStars();
+      updateStars();
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Shooting star on click
+    canvas.addEventListener("click", (e) => {
+      let x = e.clientX;
+      let y = e.clientY;
+      let dx = 15;
+      let dy = 5;
+      let length = 0;
+
+      function shootingStar() {
+        ctx.strokeStyle = "yellow";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + dx * length, y + dy * length);
+        ctx.stroke();
+        length++;
+        if (length < 50) {
+          requestAnimationFrame(shootingStar);
+        }
+      }
+      shootingStar();
+    });
+  </script>
+</body>
+</html>
