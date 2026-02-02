@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Free Fire Logo</title>
+  <style>
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .logo {
+      position: relative;
+      text-align: center;
+      color: #f1c40f;
+      font-family: 'Impact', sans-serif;
+      font-size: 60px;
+      text-shadow: 3px 3px 8px #e74c3c;
+    }
+    .logo img {
+      width: 150px;
+      height: auto;
+      margin: 0 10px;
+    }
+    .characters {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+     @keyframes flicker {
+      0%   { text-shadow: 0 0 10px #e74c3c, 0 0 20px #e67e22; }
+      50%  { text-shadow: 0 0 30px #f39c12, 0 0 60px #d35400; }
+      100% { text-shadow: 0 0 15px #e74c3c, 0 0 35px #e67e22; }
+    }
+    .logo {
+      animation: flicker 2s infinite;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <div class="characters">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMhRMjenJU-jiX-Nq242Ijchc0rRaWQ3QJnA&s" alt="Character 1">
+      <img src="https://i.pinimg.com/236x/31/7a/39/317a39a78c5c9a517c07cf979011c17b.jpg" alt="Character 2">
+      <img src="https://i.pinimg.com/236x/0d/65/2e/0d652ee00da5399942c96b4924584cc4.jpg" alt="Character 3">
+    </div>
+    FREE <span style="color:#e74c3c;">FIRE</span>
+  </div>
+</body>
+</html>
+
+
+
