@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bouncing Ball Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to top, #ffecd2, #fcb69f);
+      overflow: hidden;
+    }
+
+    .ball {
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle at 30% 30%, #ff5f62, #f9d423);
+      border-radius: 50%;
+      position: absolute;
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(300px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="ball"></div>
+</body>
+</html>
